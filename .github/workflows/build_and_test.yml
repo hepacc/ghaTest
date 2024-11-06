@@ -15,3 +15,12 @@ jobs:
       run: g++ test.cc -o test
     - name: test
       run: ./test
+    - name: zip
+      run: zip test.zip test
+    - name: Release
+      uses: softprops/action-gh-release@v2
+      #if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: test.zip
+
+
